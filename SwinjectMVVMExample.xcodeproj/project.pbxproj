@@ -54,6 +54,11 @@
 		980C98FA1B9093A000FC5F1E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98E01B908B4A00FC5F1E /* Result.framework */; };
 		980C98FB1B9093A000FC5F1E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98DD1B908B4A00FC5F1E /* Nimble.framework */; };
 		980C98FC1B9093A000FC5F1E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98DE1B908B4A00FC5F1E /* Quick.framework */; };
+		980D22FB1B92F25100AE6BF4 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D22FA1B92F25100AE6BF4 /* Networking.swift */; settings = {ASSET_TAGS = (); }; };
+		980D22FD1B92F27F00AE6BF4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D22FC1B92F27F00AE6BF4 /* Network.swift */; settings = {ASSET_TAGS = (); }; };
+		980D22FF1B92F29700AE6BF4 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D22FE1B92F29700AE6BF4 /* NetworkError.swift */; settings = {ASSET_TAGS = (); }; };
+		980D23011B92F2BB00AE6BF4 /* NetworkSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D23001B92F2BB00AE6BF4 /* NetworkSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		980D230D1B92FAB600AE6BF4 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D230C1B92FAB600AE6BF4 /* Dummy.swift */; settings = {ASSET_TAGS = (); }; };
 		98D13F1A1B90AF8B00047CA0 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98DB1B908B4A00FC5F1E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98D13F1B1B90AF8B00047CA0 /* Himotoki.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98DC1B908B4A00FC5F1E /* Himotoki.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98D13F1C1B90AF8B00047CA0 /* ReactiveCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98DF1B908B4A00FC5F1E /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -281,6 +286,11 @@
 		980C98DF1B908B4A00FC5F1E /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		980C98E01B908B4A00FC5F1E /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		980C98E11B908B4A00FC5F1E /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
+		980D22FA1B92F25100AE6BF4 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		980D22FC1B92F27F00AE6BF4 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		980D22FE1B92F29700AE6BF4 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		980D23001B92F2BB00AE6BF4 /* NetworkSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSpec.swift; sourceTree = "<group>"; };
+		980D230C1B92FAB600AE6BF4 /* Dummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 		98D13F421B90BD3A00047CA0 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		98D13F431B90BD3A00047CA0 /* Himotoki.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Himotoki.framework.dSYM; path = Carthage/Build/iOS/Himotoki.framework.dSYM; sourceTree = "<group>"; };
 		98D13F441B90BD3A00047CA0 /* ReactiveCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReactiveCocoa.framework.dSYM; path = Carthage/Build/iOS/ReactiveCocoa.framework.dSYM; sourceTree = "<group>"; };
@@ -445,6 +455,9 @@
 			children = (
 				98E8C0C61B91DAFF001F3459 /* ImageEntity.swift */,
 				98E8C0C81B91DB26001F3459 /* ResponseEntity.swift */,
+				980D22FA1B92F25100AE6BF4 /* Networking.swift */,
+				980D22FC1B92F27F00AE6BF4 /* Network.swift */,
+				980D22FE1B92F29700AE6BF4 /* NetworkError.swift */,
 				980C98161B90488900FC5F1E /* ExampleModel.h */,
 				980C98181B90488900FC5F1E /* Info.plist */,
 			);
@@ -454,8 +467,10 @@
 		980C98231B90488900FC5F1E /* ExampleModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				980D230C1B92FAB600AE6BF4 /* Dummy.swift */,
 				98E8C0CA1B91DBCC001F3459 /* ImageEntitySpec.swift */,
 				98E8C0CC1B91DC01001F3459 /* ResponseEntitySpec.swift */,
+				980D23001B92F2BB00AE6BF4 /* NetworkSpec.swift */,
 				980C98261B90488900FC5F1E /* Info.plist */,
 			);
 			path = ExampleModelTests;
@@ -887,8 +902,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				980D22FB1B92F25100AE6BF4 /* Networking.swift in Sources */,
 				98E8C0C71B91DAFF001F3459 /* ImageEntity.swift in Sources */,
+				980D22FD1B92F27F00AE6BF4 /* Network.swift in Sources */,
 				98E8C0C91B91DB26001F3459 /* ResponseEntity.swift in Sources */,
+				980D22FF1B92F29700AE6BF4 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -897,7 +915,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				98E8C0CD1B91DC01001F3459 /* ResponseEntitySpec.swift in Sources */,
+				980D230D1B92FAB600AE6BF4 /* Dummy.swift in Sources */,
 				98E8C0CB1B91DBCC001F3459 /* ImageEntitySpec.swift in Sources */,
+				980D23011B92F2BB00AE6BF4 /* NetworkSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
