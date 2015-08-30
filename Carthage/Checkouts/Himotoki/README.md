@@ -3,7 +3,7 @@
 [![Join the chat at https://gitter.im/ikesyo/Himotoki](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ikesyo/Himotoki?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![GitHub release](https://img.shields.io/github/release/ikesyo/Himotoki.svg)](https://github.com/ikesyo/Himotoki/releases)
-[![Circle CI](https://img.shields.io/circleci/project/ikesyo/Himotoki/master.svg?style=flat)](https://circleci.com/gh/ikesyo/Himotoki)
+[![CI Status](https://travis-ci.org/ikesyo/Himotoki.svg)](https://travis-ci.org/ikesyo/Himotoki)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 Himotoki (紐解き) is a type-safe JSON decoding library purely written in Swift. This library is highly inspired by popular JSON parsing libraries in Swift: [Argo](https://github.com/thoughtbot/Argo) and [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper).
@@ -27,14 +27,14 @@ struct Group: Decodable {
 	// MARK: Decodable
 
     static func decode(e: Extractor) -> Group? {
-        // Create an arguments list which itself is optional,
-        // then use it with `Optional.map()`
-        return build(
+        // Pass the initializer function and the arguments for
+        // that function to `build()`.
+        return build(Group.init)(
             e <| "name",
             e <| "floor",
             e <| [ "location", "name" ], // Parse nested objects
             e <||? "optional" // Parse optional arrays of values
-        ).map(Group.init)
+        )
     }
 }
 
