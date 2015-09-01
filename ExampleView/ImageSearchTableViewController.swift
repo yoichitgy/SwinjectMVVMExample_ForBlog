@@ -1,0 +1,12 @@
+//
+//  ImageSearchTableViewController.swift
+//  SwinjectMVVMExample
+//
+//  Created by Yoichi Tagaya on 9/1/15.
+//  Copyright © 2015 Swinject Contributors. All rights reserved.
+//
+
+import UIKit
+
+public final class ImageSearchTableViewController: UITableViewController {
+}
