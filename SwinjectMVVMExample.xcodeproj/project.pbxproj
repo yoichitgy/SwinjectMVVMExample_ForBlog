@@ -10,7 +10,6 @@
 		980C97EA1B9027A400FC5F1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C97E91B9027A400FC5F1E /* AppDelegate.swift */; };
 		980C97F11B9027A400FC5F1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 980C97F01B9027A400FC5F1E /* Assets.xcassets */; };
 		980C97F41B9027A400FC5F1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980C97F21B9027A400FC5F1E /* LaunchScreen.storyboard */; };
-		980C97FF1B9027A500FC5F1E /* SwinjectMVVMExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C97FE1B9027A500FC5F1E /* SwinjectMVVMExampleTests.swift */; };
 		980C98171B90488900FC5F1E /* ExampleModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 980C98161B90488900FC5F1E /* ExampleModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		980C981E1B90488900FC5F1E /* ExampleModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98141B90488900FC5F1E /* ExampleModel.framework */; settings = {ASSET_TAGS = (); }; };
 		980C98291B90488900FC5F1E /* ExampleModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98141B90488900FC5F1E /* ExampleModel.framework */; };
@@ -65,6 +64,11 @@
 		980D23111B954B4400AE6BF4 /* ImageSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D23101B954B4400AE6BF4 /* ImageSearchTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		980D23131B954C1400AE6BF4 /* ImageSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D23121B954C1400AE6BF4 /* ImageSearchTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		980D23151B954C8000AE6BF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980D23141B954C8000AE6BF4 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		980D23171B95647100AE6BF4 /* ImageSearchTableViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D23161B95647100AE6BF4 /* ImageSearchTableViewModeling.swift */; settings = {ASSET_TAGS = (); }; };
+		980D23191B95648400AE6BF4 /* ImageSearchTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D23181B95648400AE6BF4 /* ImageSearchTableViewModel.swift */; settings = {ASSET_TAGS = (); }; };
+		980D231B1B9564A100AE6BF4 /* ImageSearchTableViewCellModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D231A1B9564A100AE6BF4 /* ImageSearchTableViewCellModeling.swift */; settings = {ASSET_TAGS = (); }; };
+		980D231D1B9564B200AE6BF4 /* ImageSearchTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D231C1B9564B200AE6BF4 /* ImageSearchTableViewCellModel.swift */; settings = {ASSET_TAGS = (); }; };
+		980D231F1B95685E00AE6BF4 /* AppDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D231E1B95685E00AE6BF4 /* AppDelegateSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		98D13F1A1B90AF8B00047CA0 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98DB1B908B4A00FC5F1E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98D13F1B1B90AF8B00047CA0 /* Himotoki.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98DC1B908B4A00FC5F1E /* Himotoki.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98D13F1C1B90AF8B00047CA0 /* ReactiveCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98DF1B908B4A00FC5F1E /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -264,7 +268,6 @@
 		980C97F31B9027A400FC5F1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		980C97F51B9027A400FC5F1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		980C97FA1B9027A500FC5F1E /* SwinjectMVVMExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwinjectMVVMExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		980C97FE1B9027A500FC5F1E /* SwinjectMVVMExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectMVVMExampleTests.swift; sourceTree = "<group>"; };
 		980C98001B9027A500FC5F1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		980C98141B90488900FC5F1E /* ExampleModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ExampleModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		980C98161B90488900FC5F1E /* ExampleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleModel.h; sourceTree = "<group>"; };
@@ -303,6 +306,11 @@
 		980D23101B954B4400AE6BF4 /* ImageSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchTableViewController.swift; sourceTree = "<group>"; };
 		980D23121B954C1400AE6BF4 /* ImageSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchTableViewCell.swift; sourceTree = "<group>"; };
 		980D23141B954C8000AE6BF4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		980D23161B95647100AE6BF4 /* ImageSearchTableViewModeling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchTableViewModeling.swift; sourceTree = "<group>"; };
+		980D23181B95648400AE6BF4 /* ImageSearchTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchTableViewModel.swift; sourceTree = "<group>"; };
+		980D231A1B9564A100AE6BF4 /* ImageSearchTableViewCellModeling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchTableViewCellModeling.swift; sourceTree = "<group>"; };
+		980D231C1B9564B200AE6BF4 /* ImageSearchTableViewCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchTableViewCellModel.swift; sourceTree = "<group>"; };
+		980D231E1B95685E00AE6BF4 /* AppDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateSpec.swift; sourceTree = "<group>"; };
 		98D13F421B90BD3A00047CA0 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		98D13F431B90BD3A00047CA0 /* Himotoki.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Himotoki.framework.dSYM; path = Carthage/Build/iOS/Himotoki.framework.dSYM; sourceTree = "<group>"; };
 		98D13F441B90BD3A00047CA0 /* ReactiveCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReactiveCocoa.framework.dSYM; path = Carthage/Build/iOS/ReactiveCocoa.framework.dSYM; sourceTree = "<group>"; };
@@ -454,7 +462,7 @@
 		980C97FD1B9027A500FC5F1E /* SwinjectMVVMExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				980C97FE1B9027A500FC5F1E /* SwinjectMVVMExampleTests.swift */,
+				980D231E1B95685E00AE6BF4 /* AppDelegateSpec.swift */,
 				980C98001B9027A500FC5F1E /* Info.plist */,
 			);
 			path = SwinjectMVVMExampleTests;
@@ -494,6 +502,10 @@
 		980C98381B9048CF00FC5F1E /* ExampleViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				980D23161B95647100AE6BF4 /* ImageSearchTableViewModeling.swift */,
+				980D23181B95648400AE6BF4 /* ImageSearchTableViewModel.swift */,
+				980D231A1B9564A100AE6BF4 /* ImageSearchTableViewCellModeling.swift */,
+				980D231C1B9564B200AE6BF4 /* ImageSearchTableViewCellModel.swift */,
 				980C98391B9048CF00FC5F1E /* ExampleViewModel.h */,
 				980C983B1B9048CF00FC5F1E /* Info.plist */,
 			);
@@ -911,7 +923,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				980C97FF1B9027A500FC5F1E /* SwinjectMVVMExampleTests.swift in Sources */,
+				980D231F1B95685E00AE6BF4 /* AppDelegateSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -947,6 +959,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				980D23171B95647100AE6BF4 /* ImageSearchTableViewModeling.swift in Sources */,
+				980D23191B95648400AE6BF4 /* ImageSearchTableViewModel.swift in Sources */,
+				980D231B1B9564A100AE6BF4 /* ImageSearchTableViewCellModeling.swift in Sources */,
+				980D231D1B9564B200AE6BF4 /* ImageSearchTableViewCellModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1154,6 +1170,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1162,6 +1179,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.Swinject.SwinjectMVVMExample.SwinjectMVVMExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwinjectMVVMExample.app/SwinjectMVVMExample";
 			};
 			name = Debug;
@@ -1170,6 +1188,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1267,6 +1286,7 @@
 		980C984F1B9048D000FC5F1E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1282,6 +1302,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.Swinject.SwinjectMVVMExample.ExampleViewModel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1291,6 +1312,7 @@
 		980C98501B9048D000FC5F1E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;

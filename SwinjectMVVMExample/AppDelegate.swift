@@ -8,25 +8,54 @@
 
 import UIKit
 import Swinject
+import ExampleModel
+import ExampleViewModel
 import ExampleView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    var container: Container {
+        let container = Container()
+        
+        // Models
+        container.register(Networking.self) { _ in Network() }
+        container.register(ImageSearching.self) { r in
+            ImageSearch(network: r.resolve(Networking.self)!)
+        }
+        
+        // View models
+        container.register(ImageSearchTableViewModeling.self) { r
+            in ImageSearchTableViewModel(imageSearch: r.resolve(ImageSearching.self)!)
+        }
+        
+        // Views
+        container.registerForStoryboard(ImageSearchTableViewController.self) { r, c in
+            c.viewModel = r.resolve(ImageSearchTableViewModeling.self)!
+        }
+        
+        return container
+    }
+    
+    func application(
+        application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    {
         let window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window.backgroundColor = UIColor.whiteColor()
         window.makeKeyAndVisible()
         self.window = window
         
         let bundle = NSBundle(forClass: ImageSearchTableViewController.self)
-        let storyboard = SwinjectStoryboard.create(name: "Main", bundle: bundle)
+        let storyboard = SwinjectStoryboard.create(
+            name: "Main",
+            bundle: bundle,
+            container: container)
         window.rootViewController = storyboard.instantiateInitialViewController()
         
         return true
     }
-
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
