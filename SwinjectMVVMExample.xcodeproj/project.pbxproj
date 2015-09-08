@@ -19,7 +19,6 @@
 		980C984C1B9048CF00FC5F1E /* ExampleViewModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98371B9048CF00FC5F1E /* ExampleViewModel.framework */; };
 		980C984D1B9048CF00FC5F1E /* ExampleViewModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98371B9048CF00FC5F1E /* ExampleViewModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		980C98631B9048E300FC5F1E /* ExampleView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98591B9048E300FC5F1E /* ExampleView.framework */; settings = {ASSET_TAGS = (); }; };
-		980C986A1B9048E300FC5F1E /* ExampleViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C98691B9048E300FC5F1E /* ExampleViewTests.swift */; };
 		980C986E1B9048E300FC5F1E /* ExampleView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98591B9048E300FC5F1E /* ExampleView.framework */; };
 		980C986F1B9048E300FC5F1E /* ExampleView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98591B9048E300FC5F1E /* ExampleView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		980C98771B904A6D00FC5F1E /* ExampleViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 980C98391B9048CF00FC5F1E /* ExampleViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -291,7 +290,6 @@
 		980C985B1B9048E300FC5F1E /* ExampleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleView.h; sourceTree = "<group>"; };
 		980C985D1B9048E300FC5F1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		980C98621B9048E300FC5F1E /* ExampleViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		980C98691B9048E300FC5F1E /* ExampleViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewTests.swift; sourceTree = "<group>"; };
 		980C986B1B9048E300FC5F1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		980C98DB1B908B4A00FC5F1E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		980C98DC1B908B4A00FC5F1E /* Himotoki.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Himotoki.framework; path = Carthage/Build/iOS/Himotoki.framework; sourceTree = "<group>"; };
@@ -557,7 +555,6 @@
 			children = (
 				980D23261B95872500AE6BF4 /* ImageSearchTableViewControllerSpec.swift */,
 				9871945E1B9EE2AF00DFF980 /* ImageSearchTableViewCellSpec.swift */,
-				980C98691B9048E300FC5F1E /* ExampleViewTests.swift */,
 				980C986B1B9048E300FC5F1E /* Info.plist */,
 			);
 			path = ExampleViewTests;
@@ -1015,7 +1012,6 @@
 			files = (
 				9871945F1B9EE2AF00DFF980 /* ImageSearchTableViewCellSpec.swift in Sources */,
 				980D23271B95872500AE6BF4 /* ImageSearchTableViewControllerSpec.swift in Sources */,
-				980C986A1B9048E300FC5F1E /* ExampleViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
