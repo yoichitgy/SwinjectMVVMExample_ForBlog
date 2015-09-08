@@ -74,6 +74,8 @@
 		980D23251B9578AE00AE6BF4 /* DummyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D23241B9578AE00AE6BF4 /* DummyResponse.swift */; settings = {ASSET_TAGS = (); }; };
 		980D23271B95872500AE6BF4 /* ImageSearchTableViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D23261B95872500AE6BF4 /* ImageSearchTableViewControllerSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		9871945B1B9DF20E00DFF980 /* RACUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9871945A1B9DF20E00DFF980 /* RACUtil.swift */; settings = {ASSET_TAGS = (); }; };
+		9871945D1B9EE14000DFF980 /* RACUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9871945C1B9EE14000DFF980 /* RACUtil.swift */; settings = {ASSET_TAGS = (); }; };
+		9871945F1B9EE2AF00DFF980 /* ImageSearchTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9871945E1B9EE2AF00DFF980 /* ImageSearchTableViewCellSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		98D13F1A1B90AF8B00047CA0 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98DB1B908B4A00FC5F1E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98D13F1B1B90AF8B00047CA0 /* Himotoki.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98DC1B908B4A00FC5F1E /* Himotoki.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98D13F1C1B90AF8B00047CA0 /* ReactiveCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98DF1B908B4A00FC5F1E /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -321,6 +323,8 @@
 		980D23241B9578AE00AE6BF4 /* DummyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyResponse.swift; sourceTree = "<group>"; };
 		980D23261B95872500AE6BF4 /* ImageSearchTableViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchTableViewControllerSpec.swift; sourceTree = "<group>"; };
 		9871945A1B9DF20E00DFF980 /* RACUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACUtil.swift; sourceTree = "<group>"; };
+		9871945C1B9EE14000DFF980 /* RACUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACUtil.swift; sourceTree = "<group>"; };
+		9871945E1B9EE2AF00DFF980 /* ImageSearchTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchTableViewCellSpec.swift; sourceTree = "<group>"; };
 		98D13F421B90BD3A00047CA0 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		98D13F431B90BD3A00047CA0 /* Himotoki.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Himotoki.framework.dSYM; path = Carthage/Build/iOS/Himotoki.framework.dSYM; sourceTree = "<group>"; };
 		98D13F441B90BD3A00047CA0 /* ReactiveCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReactiveCocoa.framework.dSYM; path = Carthage/Build/iOS/ReactiveCocoa.framework.dSYM; sourceTree = "<group>"; };
@@ -541,6 +545,7 @@
 				980D23101B954B4400AE6BF4 /* ImageSearchTableViewController.swift */,
 				980D23121B954C1400AE6BF4 /* ImageSearchTableViewCell.swift */,
 				980D23141B954C8000AE6BF4 /* Main.storyboard */,
+				9871945C1B9EE14000DFF980 /* RACUtil.swift */,
 				980C985B1B9048E300FC5F1E /* ExampleView.h */,
 				980C985D1B9048E300FC5F1E /* Info.plist */,
 			);
@@ -551,6 +556,7 @@
 			isa = PBXGroup;
 			children = (
 				980D23261B95872500AE6BF4 /* ImageSearchTableViewControllerSpec.swift */,
+				9871945E1B9EE2AF00DFF980 /* ImageSearchTableViewCellSpec.swift */,
 				980C98691B9048E300FC5F1E /* ExampleViewTests.swift */,
 				980C986B1B9048E300FC5F1E /* Info.plist */,
 			);
@@ -999,6 +1005,7 @@
 			files = (
 				980D23111B954B4400AE6BF4 /* ImageSearchTableViewController.swift in Sources */,
 				980D23131B954C1400AE6BF4 /* ImageSearchTableViewCell.swift in Sources */,
+				9871945D1B9EE14000DFF980 /* RACUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1006,6 +1013,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9871945F1B9EE2AF00DFF980 /* ImageSearchTableViewCellSpec.swift in Sources */,
 				980D23271B95872500AE6BF4 /* ImageSearchTableViewControllerSpec.swift in Sources */,
 				980C986A1B9048E300FC5F1E /* ExampleViewTests.swift in Sources */,
 			);
