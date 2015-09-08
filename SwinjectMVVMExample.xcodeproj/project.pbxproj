@@ -73,6 +73,7 @@
 		980D23231B95788A00AE6BF4 /* ImageSearchTableViewCellModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D23221B95788A00AE6BF4 /* ImageSearchTableViewCellModelSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		980D23251B9578AE00AE6BF4 /* DummyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D23241B9578AE00AE6BF4 /* DummyResponse.swift */; settings = {ASSET_TAGS = (); }; };
 		980D23271B95872500AE6BF4 /* ImageSearchTableViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D23261B95872500AE6BF4 /* ImageSearchTableViewControllerSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		9871945B1B9DF20E00DFF980 /* RACUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9871945A1B9DF20E00DFF980 /* RACUtil.swift */; settings = {ASSET_TAGS = (); }; };
 		98D13F1A1B90AF8B00047CA0 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98DB1B908B4A00FC5F1E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98D13F1B1B90AF8B00047CA0 /* Himotoki.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98DC1B908B4A00FC5F1E /* Himotoki.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98D13F1C1B90AF8B00047CA0 /* ReactiveCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 980C98DF1B908B4A00FC5F1E /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -319,6 +320,7 @@
 		980D23221B95788A00AE6BF4 /* ImageSearchTableViewCellModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchTableViewCellModelSpec.swift; sourceTree = "<group>"; };
 		980D23241B9578AE00AE6BF4 /* DummyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyResponse.swift; sourceTree = "<group>"; };
 		980D23261B95872500AE6BF4 /* ImageSearchTableViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchTableViewControllerSpec.swift; sourceTree = "<group>"; };
+		9871945A1B9DF20E00DFF980 /* RACUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACUtil.swift; sourceTree = "<group>"; };
 		98D13F421B90BD3A00047CA0 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		98D13F431B90BD3A00047CA0 /* Himotoki.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Himotoki.framework.dSYM; path = Carthage/Build/iOS/Himotoki.framework.dSYM; sourceTree = "<group>"; };
 		98D13F441B90BD3A00047CA0 /* ReactiveCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReactiveCocoa.framework.dSYM; path = Carthage/Build/iOS/ReactiveCocoa.framework.dSYM; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 				980D23181B95648400AE6BF4 /* ImageSearchTableViewModel.swift */,
 				980D231A1B9564A100AE6BF4 /* ImageSearchTableViewCellModeling.swift */,
 				980D231C1B9564B200AE6BF4 /* ImageSearchTableViewCellModel.swift */,
+				9871945A1B9DF20E00DFF980 /* RACUtil.swift */,
 				980C98391B9048CF00FC5F1E /* ExampleViewModel.h */,
 				980C983B1B9048CF00FC5F1E /* Info.plist */,
 			);
@@ -973,6 +976,7 @@
 			files = (
 				980D23171B95647100AE6BF4 /* ImageSearchTableViewModeling.swift in Sources */,
 				980D23191B95648400AE6BF4 /* ImageSearchTableViewModel.swift in Sources */,
+				9871945B1B9DF20E00DFF980 /* RACUtil.swift in Sources */,
 				980D231B1B9564A100AE6BF4 /* ImageSearchTableViewCellModeling.swift in Sources */,
 				980D231D1B9564B200AE6BF4 /* ImageSearchTableViewCellModel.swift in Sources */,
 			);
