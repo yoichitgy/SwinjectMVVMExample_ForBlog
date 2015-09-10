@@ -25,8 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // View models
-        container.register(ImageSearchTableViewModeling.self) { r
-            in ImageSearchTableViewModel(imageSearch: r.resolve(ImageSearching.self)!)
+        container.register(ImageSearchTableViewModeling.self) { r in
+            ImageSearchTableViewModel(
+                imageSearch: r.resolve(ImageSearching.self)!,
+                network: r.resolve(Networking.self)!)
         }
         
         // Views

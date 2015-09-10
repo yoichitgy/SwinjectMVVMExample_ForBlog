@@ -34,4 +34,25 @@ public final class Network: Networking {
             }
         }
     }
+    
+    public func requestImage(url: String) -> SignalProducer<UIImage, NetworkError> {
+        return SignalProducer { observer, disposable in
+            let serializer = Alamofire.Request.dataResponseSerializer()
+            Alamofire.request(.GET, url)
+                .response(queue: self.queue, responseSerializer: serializer) {
+                    _, _, result in
+                    switch result {
+                    case .Success(let data):
+                        guard let image = UIImage(data: data) else {
+                            sendError(observer, .IncorrectDataReturned)
+                            return
+                        }
+                        sendNext(observer, image)
+                        sendCompleted(observer)
+                    case .Failure(_, let error):
+                        sendError(observer, NetworkError(error: error))
+                    }
+            }
+        }
+    }
 }

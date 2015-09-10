@@ -15,16 +15,18 @@ public final class ImageSearchTableViewModel: ImageSearchTableViewModeling {
     }
     private let _cellModels = MutableProperty<[ImageSearchTableViewCellModeling]>([])
     private let imageSearch: ImageSearching
+    private let network: Networking
     
-    public init(imageSearch: ImageSearching) {
+    public init(imageSearch: ImageSearching, network: Networking) {
         self.imageSearch = imageSearch
+        self.network = network
     }
     
     public func startSearch() {
         imageSearch.searchImages()
             .map { response in
                 response.images.map {
-                    ImageSearchTableViewCellModel(image: $0)
+                    ImageSearchTableViewCellModel(image: $0, network: self.network)
                         as ImageSearchTableViewCellModeling
                 }
             }
