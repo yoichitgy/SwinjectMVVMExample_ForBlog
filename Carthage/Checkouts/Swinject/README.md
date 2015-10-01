@@ -27,7 +27,7 @@ Dependency injection (DI) is a software design pattern that implements Inversion
 ## Requirements
 
 - iOS 8.0+ / Mac OS X 10.10+
-- Xcode 7.0 beta 4
+- Xcode 7.0
 
 ## Installation
 
@@ -115,11 +115,10 @@ The project contains `Sample-iOS.playground` to demonstrate the features of Swin
 
 To run the playground in the project, first build the project, then select `Editor > Execute Playground` menu in Xcode.
 
-*Note: Xcode 7 beta 4 looks having a problem with rendering of markup. Please do not turn on rendered markup.*
-
-## Example App
+## Example Apps
 
 - [SwinjectSimpleExample](https://github.com/Swinject/SwinjectSimpleExample) demonstrates dependency injection and Swinject in a simple weather app that lists current weather information at some locations.
+- [SwinjectMVVMExample](https://github.com/Swinject/SwinjectMVVMExample) demonstrates dependency injection with Swift and reactive programming with [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) in MVVM architecture.
 
 ## Blog Posts
 
