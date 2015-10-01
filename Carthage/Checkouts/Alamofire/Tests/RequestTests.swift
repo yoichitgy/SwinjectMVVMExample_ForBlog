@@ -87,7 +87,7 @@ class RequestResponseTestCase: BaseTestCase {
         var request: NSURLRequest?
         var response: NSHTTPURLResponse?
         var data: NSData?
-        var error: NSError?
+        var error: ErrorType?
 
         // When
         Alamofire.request(.GET, URLString, parameters: ["foo": "bar"])
@@ -121,7 +121,7 @@ class RequestResponseTestCase: BaseTestCase {
         var responseRequest: NSURLRequest?
         var responseResponse: NSHTTPURLResponse?
         var responseData: NSData?
-        var responseError: NSError?
+        var responseError: ErrorType?
 
         // When
         let request = Alamofire.request(.GET, URLString)
@@ -201,7 +201,7 @@ class RequestResponseTestCase: BaseTestCase {
         var responseRequest: NSURLRequest?
         var responseResponse: NSHTTPURLResponse?
         var responseData: NSData?
-        var responseError: NSError?
+        var responseError: ErrorType?
 
         // When
         let request = Alamofire.request(.GET, URLString)
@@ -275,6 +275,111 @@ class RequestResponseTestCase: BaseTestCase {
             )
         } else {
             XCTFail("last item in bytesValues and progressValues should not be nil")
+        }
+    }
+
+    func testPOSTRequestWithUnicodeParameters() {
+        // Given
+        let URLString = "https://httpbin.org/post"
+        let parameters = [
+            "french": "français",
+            "japanese": "日本語",
+            "arabic": "العربية",
+            "emoji": "😃"
+        ]
+
+        let expectation = expectationWithDescription("request should succeed")
+
+        var request: NSURLRequest?
+        var response: NSHTTPURLResponse?
+        var result: Result<AnyObject>?
+
+        // When
+        Alamofire.request(.POST, URLString, parameters: parameters)
+            .responseJSON { responseRequest, responseResponse, responseResult in
+                request = responseRequest
+                response = responseResponse
+                result = responseResult
+
+                expectation.fulfill()
+            }
+
+        waitForExpectationsWithTimeout(defaultTimeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(request, "request should not be nil")
+        XCTAssertNotNil(response, "response should not be nil")
+        XCTAssertNotNil(result, "result should be nil")
+
+        if let
+            JSON = result?.value as? [String: AnyObject],
+            form = JSON["form"] as? [String: String]
+        {
+            XCTAssertEqual(form["french"], parameters["french"], "french parameter value should match form value")
+            XCTAssertEqual(form["japanese"], parameters["japanese"], "japanese parameter value should match form value")
+            XCTAssertEqual(form["arabic"], parameters["arabic"], "arabic parameter value should match form value")
+            XCTAssertEqual(form["emoji"], parameters["emoji"], "emoji parameter value should match form value")
+        } else {
+            XCTFail("form parameter in JSON should not be nil")
+        }
+    }
+
+    func testPOSTRequestWithBase64EncodedImages() {
+        // Given
+        let URLString = "https://httpbin.org/post"
+
+        let pngBase64EncodedString: String = {
+            let URL = URLForResource("unicorn", withExtension: "png")
+            let data = NSData(contentsOfURL: URL)!
+
+            return data.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        }()
+
+        let jpegBase64EncodedString: String = {
+            let URL = URLForResource("rainbow", withExtension: "jpg")
+            let data = NSData(contentsOfURL: URL)!
+
+            return data.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        }()
+
+        let parameters = [
+            "email": "user@alamofire.org",
+            "png_image": pngBase64EncodedString,
+            "jpeg_image": jpegBase64EncodedString
+        ]
+
+        let expectation = expectationWithDescription("request should succeed")
+
+        var request: NSURLRequest?
+        var response: NSHTTPURLResponse?
+        var result: Result<AnyObject>?
+
+        // When
+        Alamofire.request(.POST, URLString, parameters: parameters)
+            .responseJSON { responseRequest, responseResponse, responseResult in
+                request = responseRequest
+                response = responseResponse
+                result = responseResult
+
+                expectation.fulfill()
+        }
+
+        waitForExpectationsWithTimeout(defaultTimeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(request, "request should not be nil")
+        XCTAssertNotNil(response, "response should not be nil")
+        XCTAssertNotNil(result, "result should be nil")
+
+        if let
+            JSON = result?.value as? [String: AnyObject],
+            form = JSON["form"] as? [String: String]
+        {
+            XCTAssertEqual(form["email"], parameters["email"], "email parameter value should match form value")
+            XCTAssertEqual(form["png_image"], parameters["png_image"], "png_image parameter value should match form value")
+            XCTAssertEqual(form["jpeg_image"], parameters["jpeg_image"], "jpeg_image parameter value should match form value")
+        } else {
+            XCTFail("form parameter in JSON should not be nil")
         }
     }
 }

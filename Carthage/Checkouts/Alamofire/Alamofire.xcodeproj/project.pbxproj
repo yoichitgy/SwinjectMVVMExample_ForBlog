@@ -27,6 +27,11 @@
 		4C33A1441B52089C00873DFF /* ServerTrustPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C33A1421B52089C00873DFF /* ServerTrustPolicyTests.swift */; };
 		4C341BBA1B1A865A00C1B34D /* CacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C341BB91B1A865A00C1B34D /* CacheTests.swift */; };
 		4C341BBB1B1A865A00C1B34D /* CacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C341BB91B1A865A00C1B34D /* CacheTests.swift */; };
+		4C3C53B21BAC5D40004F7F68 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8111E3319A95C8B0040E7D1 /* Alamofire.framework */; settings = {ASSET_TAGS = (); }; };
+		4C4CBE7B1BAF700C0024D659 /* String+AlamofireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CBE7A1BAF700C0024D659 /* String+AlamofireTests.swift */; settings = {ASSET_TAGS = (); }; };
+		4C4CBE7C1BAF700C0024D659 /* String+AlamofireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4CBE7A1BAF700C0024D659 /* String+AlamofireTests.swift */; settings = {ASSET_TAGS = (); }; };
+		4C7C8D221B9D0D9000948136 /* NSURLSessionConfiguration+AlamofireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C8D211B9D0D9000948136 /* NSURLSessionConfiguration+AlamofireTests.swift */; settings = {ASSET_TAGS = (); }; };
+		4C7C8D231B9D0D9000948136 /* NSURLSessionConfiguration+AlamofireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7C8D211B9D0D9000948136 /* NSURLSessionConfiguration+AlamofireTests.swift */; settings = {ASSET_TAGS = (); }; };
 		4C811F8D1B51856D00E0F59A /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C811F8C1B51856D00E0F59A /* ServerTrustPolicy.swift */; };
 		4C811F8E1B51856D00E0F59A /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C811F8C1B51856D00E0F59A /* ServerTrustPolicy.swift */; };
 		4C812C3B1B535F220017E0BF /* alamofire-root-ca.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4C812C3A1B535F220017E0BF /* alamofire-root-ca.cer */; };
@@ -35,8 +40,8 @@
 		4C812C401B535F2E0017E0BF /* alamofire-signing-ca1.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4C812C3D1B535F2E0017E0BF /* alamofire-signing-ca1.cer */; };
 		4C812C411B535F2E0017E0BF /* alamofire-signing-ca2.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4C812C3E1B535F2E0017E0BF /* alamofire-signing-ca2.cer */; };
 		4C812C421B535F2E0017E0BF /* alamofire-signing-ca2.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4C812C3E1B535F2E0017E0BF /* alamofire-signing-ca2.cer */; };
-		4C812C471B535F400017E0BF /* *.alamofire.org.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4C812C431B535F400017E0BF /* *.alamofire.org.cer */; };
-		4C812C481B535F400017E0BF /* *.alamofire.org.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4C812C431B535F400017E0BF /* *.alamofire.org.cer */; };
+		4C812C471B535F400017E0BF /* wildcard.alamofire.org.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4C812C431B535F400017E0BF /* wildcard.alamofire.org.cer */; };
+		4C812C481B535F400017E0BF /* wildcard.alamofire.org.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4C812C431B535F400017E0BF /* wildcard.alamofire.org.cer */; };
 		4C812C491B535F400017E0BF /* multiple-dns-names.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4C812C441B535F400017E0BF /* multiple-dns-names.cer */; };
 		4C812C4A1B535F400017E0BF /* multiple-dns-names.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4C812C441B535F400017E0BF /* multiple-dns-names.cer */; };
 		4C812C4B1B535F400017E0BF /* signed-by-ca1.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4C812C451B535F400017E0BF /* signed-by-ca1.cer */; };
@@ -146,11 +151,13 @@
 		4C33A1241B5207DB00873DFF /* unicorn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unicorn.png; sourceTree = "<group>"; };
 		4C33A1421B52089C00873DFF /* ServerTrustPolicyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTrustPolicyTests.swift; sourceTree = "<group>"; };
 		4C341BB91B1A865A00C1B34D /* CacheTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheTests.swift; sourceTree = "<group>"; };
+		4C4CBE7A1BAF700C0024D659 /* String+AlamofireTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+AlamofireTests.swift"; sourceTree = "<group>"; };
+		4C7C8D211B9D0D9000948136 /* NSURLSessionConfiguration+AlamofireTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLSessionConfiguration+AlamofireTests.swift"; sourceTree = "<group>"; };
 		4C811F8C1B51856D00E0F59A /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		4C812C3A1B535F220017E0BF /* alamofire-root-ca.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = "alamofire-root-ca.cer"; path = "alamofire.org/alamofire-root-ca.cer"; sourceTree = "<group>"; };
 		4C812C3D1B535F2E0017E0BF /* alamofire-signing-ca1.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = "alamofire-signing-ca1.cer"; path = "alamofire.org/alamofire-signing-ca1.cer"; sourceTree = "<group>"; };
 		4C812C3E1B535F2E0017E0BF /* alamofire-signing-ca2.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = "alamofire-signing-ca2.cer"; path = "alamofire.org/alamofire-signing-ca2.cer"; sourceTree = "<group>"; };
-		4C812C431B535F400017E0BF /* *.alamofire.org.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = "*.alamofire.org.cer"; path = "alamofire.org/*.alamofire.org.cer"; sourceTree = "<group>"; };
+		4C812C431B535F400017E0BF /* wildcard.alamofire.org.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = wildcard.alamofire.org.cer; path = alamofire.org/wildcard.alamofire.org.cer; sourceTree = "<group>"; };
 		4C812C441B535F400017E0BF /* multiple-dns-names.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = "multiple-dns-names.cer"; path = "alamofire.org/multiple-dns-names.cer"; sourceTree = "<group>"; };
 		4C812C451B535F400017E0BF /* signed-by-ca1.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = "signed-by-ca1.cer"; path = "alamofire.org/signed-by-ca1.cer"; sourceTree = "<group>"; };
 		4C812C461B535F400017E0BF /* test.alamofire.org.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = test.alamofire.org.cer; path = alamofire.org/test.alamofire.org.cer; sourceTree = "<group>"; };
@@ -218,6 +225,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C3C53B21BAC5D40004F7F68 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,10 +327,10 @@
 		4C33A1401B52084400873DFF /* Signed by CA1 */ = {
 			isa = PBXGroup;
 			children = (
-				4C812C431B535F400017E0BF /* *.alamofire.org.cer */,
 				4C812C441B535F400017E0BF /* multiple-dns-names.cer */,
 				4C812C451B535F400017E0BF /* signed-by-ca1.cer */,
 				4C812C461B535F400017E0BF /* test.alamofire.org.cer */,
+				4C812C431B535F400017E0BF /* wildcard.alamofire.org.cer */,
 			);
 			name = "Signed by CA1";
 			sourceTree = "<group>";
@@ -337,6 +345,15 @@
 				4C812C531B535F540017E0BF /* valid-uri.cer */,
 			);
 			name = "Signed by CA2";
+			sourceTree = "<group>";
+		};
+		4C7C8D201B9D0D7300948136 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C7C8D211B9D0D9000948136 /* NSURLSessionConfiguration+AlamofireTests.swift */,
+				4C4CBE7A1BAF700C0024D659 /* String+AlamofireTests.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		4C812C381B535F000017E0BF /* disig.sk */ = {
@@ -431,6 +448,7 @@
 			children = (
 				4C256A501B096C2C0065714F /* BaseTestCase.swift */,
 				4C256A4E1B09656A0065714F /* Core */,
+				4C7C8D201B9D0D7300948136 /* Extensions */,
 				4C256A4F1B09656E0065714F /* Features */,
 				4C3238E91B3617A600FE04AE /* Resources */,
 				F8111E4019A95C8B0040E7D1 /* Supporting Files */,
@@ -653,7 +671,7 @@
 				4C812C5C1B535F540017E0BF /* valid-uri.cer in Resources */,
 				4C812C3F1B535F2E0017E0BF /* alamofire-signing-ca1.cer in Resources */,
 				4C812C5A1B535F540017E0BF /* valid-dns-name.cer in Resources */,
-				4C812C471B535F400017E0BF /* *.alamofire.org.cer in Resources */,
+				4C812C471B535F400017E0BF /* wildcard.alamofire.org.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,7 +695,7 @@
 				4C812C5D1B535F540017E0BF /* valid-uri.cer in Resources */,
 				4C812C401B535F2E0017E0BF /* alamofire-signing-ca1.cer in Resources */,
 				4C812C5B1B535F540017E0BF /* valid-dns-name.cer in Resources */,
-				4C812C481B535F400017E0BF /* *.alamofire.org.cer in Resources */,
+				4C812C481B535F400017E0BF /* wildcard.alamofire.org.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,6 +769,7 @@
 				4C3238E71B3604DB00FE04AE /* MultipartFormDataTests.swift in Sources */,
 				4C33A1431B52089C00873DFF /* ServerTrustPolicyTests.swift in Sources */,
 				4C341BBA1B1A865A00C1B34D /* CacheTests.swift in Sources */,
+				4C4CBE7B1BAF700C0024D659 /* String+AlamofireTests.swift in Sources */,
 				4CA028C51B7466C500C84163 /* ResultTests.swift in Sources */,
 				4CCFA79A1B2BE71600B6F460 /* URLProtocolTests.swift in Sources */,
 				F86AEFE71AE6A312007D9C76 /* TLSEvaluationTests.swift in Sources */,
@@ -764,6 +783,7 @@
 				F8111E6119A9674D0040E7D1 /* ParameterEncodingTests.swift in Sources */,
 				F8111E6419A9674D0040E7D1 /* UploadTests.swift in Sources */,
 				F8111E6019A9674D0040E7D1 /* DownloadTests.swift in Sources */,
+				4C7C8D221B9D0D9000948136 /* NSURLSessionConfiguration+AlamofireTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,6 +794,7 @@
 				4C3238E81B3604DB00FE04AE /* MultipartFormDataTests.swift in Sources */,
 				4C33A1441B52089C00873DFF /* ServerTrustPolicyTests.swift in Sources */,
 				4C341BBB1B1A865A00C1B34D /* CacheTests.swift in Sources */,
+				4C4CBE7C1BAF700C0024D659 /* String+AlamofireTests.swift in Sources */,
 				4CA028C61B7466C500C84163 /* ResultTests.swift in Sources */,
 				4CCFA79B1B2BE71600B6F460 /* URLProtocolTests.swift in Sources */,
 				F829C6BE1A7A950600A2CD59 /* ParameterEncodingTests.swift in Sources */,
@@ -787,6 +808,7 @@
 				F829C6C41A7A950600A2CD59 /* AuthenticationTests.swift in Sources */,
 				F829C6C51A7A950600A2CD59 /* ValidationTests.swift in Sources */,
 				F86AEFE81AE6A315007D9C76 /* TLSEvaluationTests.swift in Sources */,
+				4C7C8D231B9D0D9000948136 /* NSURLSessionConfiguration+AlamofireTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
