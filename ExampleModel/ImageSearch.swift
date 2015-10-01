@@ -22,7 +22,7 @@ public final class ImageSearch: ImageSearching {
         let parameters = Pixabay.requestParameters
         return network.requestJSON(url, parameters: parameters)
             .attemptMap { json in
-                if let response = decode(json) as ResponseEntity? {
+                if let response = (try? decode(json)) as ResponseEntity? {
                     return Result(value: response)
                 }
                 else {
