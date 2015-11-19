@@ -33,9 +33,15 @@ it.
 - Went to the kitchen, only to forget why you went in the first place?
   Better submit an issue.
 
+Be sure to include in your issue:
+
+- Your Xcode version (eg - Xcode 7.0.1 7A1001)
+- Your version of Nimble (eg - v2.0.0 or git sha `20a3f3b4e63cc8d97c92c4164bf36f2a2c9a6e1b`)
+- What are the steps to reproduce this issue?
+
 ## Building the Project
 
-- Use `Nimble.xcproj` to work on Nimble.
+- Use `Nimble.xcodeproj` to work on Nimble.
 
 ## Pull Requests
 
@@ -51,10 +57,10 @@ it.
   tests using `./test`.
 - If you've added a file to the project, make sure it's included in both
   the OS X and iOS targets.
-- To make minor updates to old versions of Nimble that support Swift
-  1.1, issue a pull request against the `swift-1.1` branch. The master
-  branch supports Swift 1.2. Travis CI will only pass for pull requests
-  issued against the `swift-1.1` branch.
+- The `master` branch will always support the stable Xcode version. Other
+  branches will point to their corresponding versions they support.
+- If you're making a configuration change, make sure to edit both the xcode
+  project and the podspec file.
 
 ### Style Conventions
 
@@ -93,14 +99,8 @@ some "ground rules":
 
 The process is relatively straight forward, but here's is a useful checklist for tagging:
 
-- Bump the version in `Nimble.podspec` (update, commit, push to github)
-- Look a changes from the previously tagged release and write release notes: `git log v0.4.0...HEAD`
-- Tag the version: `git tag -s vA.B.C -F release-notes-file`
-- Push the tag: `git push origin master --tags`
-- Push the podspec file to trunk: `pod trunk push Nimble.podspec`
-- Build the carthage pre-built binary:
-  - `carthage build --no-skip-current`
-  - `carthage archive Nimble`
+- Look at changes from the previously tagged release and write release notes: `git log v0.4.0...HEAD`
+- Run the release script: `./script/release A.B.C release-notes-file`
 - Go to [github releases](https://github.com/Quick/Nimble/releases) and mark the tagged commit as a release.
   - Use the same release notes you created for the tag, but tweak up formatting for github.
   - Attach the carthage release `Nimble.framework.zip` to the release.

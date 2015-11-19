@@ -173,7 +173,7 @@ print(methodInjection2.play())
 internal protocol ParentType: AnyObject { }
 internal protocol ChildType: AnyObject { }
 
-internal class Mother: ParentType {
+internal class Parent: ParentType {
     let child: ChildType?
     
     init(child: ChildType?) {
@@ -181,23 +181,23 @@ internal class Mother: ParentType {
     }
 }
 
-internal class Daughter: ChildType {
+internal class Child: ChildType {
     weak var parent: ParentType?
 }
 
 // Use initCompleted callback to set the circular dependency to avoid infinite recursion.
-container.register(ParentType.self) { r in Mother(child: r.resolve(ChildType.self)!) }
-container.register(ChildType.self) { _ in Daughter() }
+container.register(ParentType.self) { r in Parent(child: r.resolve(ChildType.self)!) }
+container.register(ChildType.self) { _ in Child() }
     .initCompleted { r, c in
-        let daughter = c as! Daughter
-        daughter.parent = r.resolve(ParentType.self)
+        let child = c as! Child
+        child.parent = r.resolve(ParentType.self)
     }
 
-let mother = container.resolve(ParentType.self) as! Mother
-let daughter = mother.child as! Daughter
+let parent = container.resolve(ParentType.self) as! Parent
+let child = parent.child as! Child
 
-// The mother and daughter are referencing each other.
-print(mother === daughter.parent)
+// The parent and child are referencing each other.
+print(parent === child.parent)
 
 /*:
 ## Injection with Arguments
@@ -205,8 +205,12 @@ print(mother === daughter.parent)
 
 class Horse: AnimalType {
     var name: String?
-    var running = false
+    var running: Bool
     
+    convenience init(name: String) {
+        self.init(name: name, running: false)
+    }
+
     init(name: String, running: Bool) {
         self.name = name
         self.running = running
@@ -217,31 +221,50 @@ class Horse: AnimalType {
     }
 }
 
-// The factory closure can take arguments.
+// The factory closure can take arguments after the `Resolvable` parameter (in this example, unused as `_`).
 // Note that the container already has an AnimalType without a registration name,
 // but the factory with the arguments is recognized as a different registration to resolve.
-container.register(AnimalType.self) { _, arg1, arg2 in Horse(name: arg1, running: arg2) }
+container.register(AnimalType.self) { _, name in Horse(name: name) }
+container.register(AnimalType.self) { _, name, running in Horse(name: name, running: running) }
 
 // The arguments to the factory are specified on the resolution.
-let horse = container.resolve(AnimalType.self, arg1: "Lucky", arg2: true) as! Horse
-print(horse.name!)
-print(horse.running)
+// If you pass an argument, pass it to `argument` parameter.
+// If you pass more arguments, pass them as a tuple to `arguments` parameter.
+let horse1 = container.resolve(AnimalType.self, argument: "Spirit") as! Horse
+print(horse1.name)
+print(horse1.running)
+
+let horse2 = container.resolve(AnimalType.self, arguments: ("Lucky", true)) as! Horse
+print(horse2.name)
+print(horse2.running)
 
 /*:
 ## Self-binding
 */
 
-class SelfieBoy {
-    func takePhoto() -> String {
-        return "Selfie!"
+protocol MyDataType {
+    var data: String { get }
+}
+
+class MyImportantData: MyDataType {
+    let data = "Important data"
+}
+
+class MyController {
+    var myData: MyDataType?
+    
+    func showData() -> String {
+        return myData.map { $0.data } ?? ""
     }
 }
 
-// Register SelfieBoy as both service and component types.
-container.register(SelfieBoy.self) { r in SelfieBoy() }
+// Register MyController as both service and component types to inject dependency to its property.
+container.register(MyController.self) { r in MyController() }
+    .initCompleted { r, c in c.myData = r.resolve(MyDataType.self)! }
+container.register(MyDataType.self) { _ in MyImportantData() }
 
-let selfieBoy = container.resolve(SelfieBoy.self)!
-print(selfieBoy.takePhoto())
+let myController = container.resolve(MyController.self)!
+print(myController.showData())
 
 /*:
 ## Container Hierarchy
@@ -383,14 +406,3 @@ var turtle2 = container5.resolve(AnimalType.self)!
 turtle1.name = "Laph"
 print(turtle1.name!)
 print(turtle2.name!)
-
-/*:
-## Shared Singleton Container
-*/
-
-// The shared container can be used if it is ok to depend on the singleton container.
-Container.defaultContainer.register(AnimalType.self) { _ in Cat(name: "Mew") }
-
-let mew = Container.defaultContainer.resolve(AnimalType.self)!
-print(mew.name!)
-
