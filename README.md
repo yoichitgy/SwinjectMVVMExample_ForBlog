@@ -1,6 +1,6 @@
 # SwinjectMVVMExample_ForBlog
 
-This is an example project to demonstrate [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection) and [Swinject](https://github.com/Swinject/Swinject) in [MVVM (Model-View-ViewModel)](https://en.wikipedia.org/wiki/Model_View_ViewModel) architecture with [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa). This project is a simplified version of [Swinject/SwinjectMVVMExample](https://github.com/Swinject/SwinjectMVVMExample) to exactly follow [my blog posts](https://yoichitgy.github.io/post/dependency-injection-in-mvvm-architecture-with-reactivecocoa-part-1-introduction/).
+This is an example project to demonstrate [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection) and [Swinject](https://github.com/Swinject/Swinject) in [MVVM (Model-View-ViewModel)](https://en.wikipedia.org/wiki/Model_View_ViewModel) architecture with [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa). This project is a simplified version of [Swinject/SwinjectMVVMExample](https://github.com/Swinject/SwinjectMVVMExample) to exactly follow [my blog posts](https://yoichitgy.github.io/post/dependency-injection-in-mvvm-architecture-with-reactivecocoa-part-1-introduction/) (except updates of Xcode and frameworks).
 
 ![Screenshot](https://yoichitgy.github.io/images/post/2015-09/SwinjectMVVMExampleCellsWithImagesScreenshot.png)
 
