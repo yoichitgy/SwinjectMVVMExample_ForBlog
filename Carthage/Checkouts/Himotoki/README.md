@@ -24,12 +24,12 @@ struct Group: Decodable {
     let locationName: String
     let optional: [String]?
 
-	// MARK: Decodable
+    // MARK: Decodable
 
-    static func decode(e: Extractor) -> Group? {
+    static func decode(e: Extractor) throws -> Group {
         // Pass the initializer function and the arguments for
         // that function to `build()`.
-        return build(Group.init)(
+        return try build(Group.init)(
             e <| "name",
             e <| "floor",
             e <| [ "location", "name" ], // Parse nested objects
@@ -39,26 +39,45 @@ struct Group: Decodable {
 }
 
 func testGroup() {
-   var JSON: [String: AnyObject] = [ "name": "Himotoki", "floor": 12 ]
+    var JSON: [String: AnyObject] = [ "name": "Himotoki", "floor": 12 ]
+    
+    let g: Group? = try? decode(JSON)
+    XCTAssert(g != nil)
+    XCTAssert(g?.name == "Himotoki")
+    XCTAssert(g?.floor == 12)
+    XCTAssert(g?.optional == nil)
 
-   let g: Group? = decode(JSON)
-   XCTAssert(g != nil)
-   XCTAssert(g?.name == "Himotoki")
-   XCTAssert(g?.floor == 12)
-   XCTAssert(g?.optional == nil)
-
-   JSON["name"] = nil
-   let f: Group? = decode(JSON)
-   XCTAssert(f == nil)
+    JSON["name"] = nil
+    do {
+        try decode(JSON) as Group
+    } catch let DecodeError.MissingKeyPath(keyPath) {
+        XCTAssert(keyPath == "name")
+    } catch {
+        XCTFail()
+    }
 }
 ```
 
+## Operators
+
+Himotoki supports the following operators to decode JSON elements, where `T` is a generic type conforming to `Decodable` protocol.
+
+| Operator                        | Decode element as | Remarks                          |
+|:--------------------------------|:------------------|:---------------------------------|
+| <code>&lt;&#124;</code>         | `T`               | A value                          |
+| <code>&lt;&#124;?</code>        | `T?`              | An optional value                |
+| <code>&lt;&#124;&#124;</code>   | `[T]`             | An array of values               |
+| <code>&lt;&#124;&#124;?</code>  | `[T]?`            | An optional array of values      |
+| <code>&lt;&#124;-&#124;</code>  | `[String: T]`     | A dictionary of values           |
+| <code>&lt;&#124;-&#124;?</code> | `[String: T]?`    | An optional dictionary of values |
+
 ## Requirements
 
-- Swift 2 / Xcode 7
+- Swift 2.1 / Xcode 7.1
 - OS X 10.9 or later
 - iOS 8.0 or later (by Carthage or CocoaPods) / iOS 7 (by copying the source files directly)
-- watchOS 2
+- tvOS 9.0
+- watchOS 2.0
 
 ## Installation
 
@@ -68,7 +87,7 @@ There are 3 options. If your app support iOS 7, you can only use the last way.
 
 Himotoki is [Carthage](https://github.com/Carthage/Carthage) compatible.
 
-- Add `github "ikesyo/Himotoki" ~> 1.0` to your Cartfile.
+- Add `github "ikesyo/Himotoki" ~> 1.1` to your Cartfile.
 - Run `carthage update`.
 
 ### Framework with CocoaPods
@@ -79,7 +98,7 @@ Himotoki also can be used by [CocoaPods](https://cocoapods.org/).
 
     ```ruby
     use_frameworks!
-    pod "Himotoki", "~> 1.0"
+    pod "Himotoki", "~> 1.1"
     ```
 
 - Run `pod install`.

@@ -23,23 +23,25 @@ import Foundation
 ///
 /// where `A` and `X` are protocols, `B` is a type conforming `A`, and `Y` is a type conforming `X` and depending on `A`.
 public final class Container {
-    /// The shared singleton instance of `Container`. It can be used in *the service locator pattern*.
-    public static let defaultContainer = Container()
-    
     private var services = [ServiceKey: ServiceEntryBase]()
     private let parent: Container?
     private var resolutionPool = ResolutionPool()
     
-    /// Instantiates a `Container`.
-    public init() {
-        self.parent = nil
+    /// Instantiates a `Container` with its parent `Container`. The parent is optional.
+    ///
+    /// - Parameter parent: The optional parent `Container`.
+    public init(parent: Container? = nil) {
+        self.parent = parent
     }
     
-    /// Instantiates a `Container` that is a child container of the `Container` specified with `parent`.
+    /// Instantiates a `Container` with its parent `Container` and a closure registering services. The parent is optional.
     ///
-    /// - Parameter parent: The parent `Container`.
-    public init(parent: Container) {
-        self.parent = parent
+    /// - Parameters:
+    ///     - parent:             The optional parent `Container`.
+    ///     - registeringClosure: The closure registering services to the new container instance.
+    public convenience init(parent: Container? = nil, @noescape registeringClosure: Container -> Void) {
+        self.init(parent: parent)
+        registeringClosure(self)
     }
     
     /// Removes all registrations in the container.
@@ -76,8 +78,12 @@ public final class Container {
 }
 
 // MARK: - Extension for Storyboard
+#if os(iOS) || os(OSX) || os(tvOS)
 extension Container {
     /// Adds a registration of the specified view or window controller that is configured in a storyboard.
+    ///
+    /// - Note: Do NOT explicitly resolve the controller registered by this method.
+    ///         The controller is intended to be resolved by `SwinjectStoryboard` implicitly.
     ///
     /// - Parameters:
     ///   - controllerType: The controller type to register as a service type.
@@ -89,7 +95,11 @@ extension Container {
     public func registerForStoryboard<C: Controller>(controllerType: C.Type, name: String? = nil, initCompleted: (Resolvable, C) -> ()) {
         let key = ServiceKey(factoryType: controllerType, name: name)
         let entry = ServiceEntry(serviceType: controllerType)
-        entry.initCompleted = initCompleted
+        
+        // Xcode 7.1 workaround for Issue #10. This workaround is not necessary with Xcode 7.
+        let wrappingClosure: (Resolvable, Controller) -> () = { r, c in initCompleted(r, c as! C) }
+        entry.initCompleted = wrappingClosure
+        
         services[key] = entry
     }
     
@@ -100,7 +110,9 @@ extension Container {
         let key = ServiceKey(factoryType: controllerType, name: name)
         if let entry = getEntry(key) {
             resolutionPool[key] = controller as Any
-            if let completed = entry.initCompleted as? (Resolvable, C) -> () {
+            
+            // Xcode 7.1 workaround for Issue #10, casting initCompleted to (Resolvable, Controller) -> (), not to (Resolvable, C) -> ()
+            if let completed = entry.initCompleted as? ( (Resolvable, Controller) -> () ) {
                 completed(self, controller)
             }
         }
@@ -110,6 +122,7 @@ extension Container {
         return services[key] ?? self.parent?.getEntry(key)
     }
 }
+#endif
 
 // MARK: - Resolvable
 extension Container: Resolvable {

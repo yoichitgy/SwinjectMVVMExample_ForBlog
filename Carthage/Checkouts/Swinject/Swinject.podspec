@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Swinject"
-  s.version          = "0.2.2"
+  s.version          = "0.5"
   s.summary          = "Dependency injection framework for Swift"
   s.description      = <<-DESC
                        Swinject is a dependency injection framework for Swift, to manage the dependencies of types in your system.
@@ -10,10 +10,14 @@ Pod::Spec.new do |s|
   s.author           = 'Swinject Contributors'
   s.source           = { :git => "https://github.com/Swinject/Swinject.git", :tag => s.version.to_s }
 
-  s.source_files = 'Swinject/**/*.{swift,h,m}'
-  s.ios.exclude_files = 'Swinject/OSX'
-  s.osx.exclude_files = 'Swinject/iOS'
+  shared_files = 'Swinject/*.swift'
+  s.ios.source_files = shared_files, 'Swinject/iOS-tvOS/*.{swift,h,m}'
+  s.osx.source_files = shared_files, 'Swinject/OSX/*.{swift,h,m}'
+  s.watchos.source_files = shared_files, 'Swinject/watchOS/*.{swift,h,m}'
+  s.tvos.source_files = shared_files, 'Swinject/iOS-tvOS/*.{swift,h,m}'
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
+  s.watchos.deployment_target = '2.0'
+  s.tvos.deployment_target = '9.0'
   s.requires_arc = true
 end

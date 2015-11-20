@@ -23,13 +23,13 @@ public final class Network: Networking {
             let serializer = Alamofire.Request.JSONResponseSerializer()
             Alamofire.request(.GET, url, parameters: parameters)
                 .response(queue: self.queue, responseSerializer: serializer) {
-                    _, _, result in
-                    switch result {
+                    response in
+                    switch response.result {
                     case .Success(let value):
-                        sendNext(observer, value)
-                        sendCompleted(observer)
-                    case .Failure(_, let error):
-                        sendError(observer, NetworkError(error: error))
+                        observer.sendNext(value)
+                        observer.sendCompleted()
+                    case .Failure(let error):
+                        observer.sendFailed(NetworkError(error: error))
                     }
             }
         }
@@ -40,17 +40,17 @@ public final class Network: Networking {
             let serializer = Alamofire.Request.dataResponseSerializer()
             Alamofire.request(.GET, url)
                 .response(queue: self.queue, responseSerializer: serializer) {
-                    _, _, result in
-                    switch result {
+                    response in
+                    switch response.result {
                     case .Success(let data):
                         guard let image = UIImage(data: data) else {
-                            sendError(observer, .IncorrectDataReturned)
+                            observer.sendFailed(.IncorrectDataReturned)
                             return
                         }
-                        sendNext(observer, image)
-                        sendCompleted(observer)
-                    case .Failure(_, let error):
-                        sendError(observer, NetworkError(error: error))
+                        observer.sendNext(image)
+                        observer.sendCompleted()
+                    case .Failure(let error):
+                        observer.sendFailed(NetworkError(error: error))
                     }
             }
         }

@@ -9,6 +9,6 @@
 import ReactiveCocoa
 
 public protocol ImageSearchTableViewModeling {
-    var cellModels: PropertyOf<[ImageSearchTableViewCellModeling]> { get }
+    var cellModels: AnyProperty<[ImageSearchTableViewCellModeling]> { get }
     func startSearch()
 }

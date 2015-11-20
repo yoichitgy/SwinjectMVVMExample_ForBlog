@@ -1,7 +1,10 @@
 language: objective-c
-osx_image: xcode7
+matrix:
+  include:
+    - osx_image: xcode7.1
 env:
-  - LC_CTYPE=en_US.UTF-8
+  global:
+    - LC_CTYPE=en_US.UTF-8
 git:
   submodules: false
 before_install:
@@ -11,6 +14,7 @@ script:
   - set -o pipefail
   - xcodebuild test -scheme Himotoki-Mac | xcpretty -c
   - xcodebuild test -scheme Himotoki-iOS -sdk iphonesimulator | xcpretty -c
+  - xcodebuild test -scheme Himotoki-tvOS -sdk appletvsimulator | xcpretty -c
   - xcodebuild build -scheme Himotoki-watchOS -sdk watchsimulator | xcpretty -c
 notifications:
   email: false
