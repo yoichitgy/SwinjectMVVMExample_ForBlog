@@ -23,12 +23,12 @@ public final class Network: Networking {
             let serializer = Alamofire.Request.JSONResponseSerializer()
             Alamofire.request(.GET, url, parameters: parameters)
                 .response(queue: self.queue, responseSerializer: serializer) {
-                    _, _, result in
-                    switch result {
+                    response in
+                    switch response.result {
                     case .Success(let value):
                         observer.sendNext(value)
                         observer.sendCompleted()
-                    case .Failure(_, let error):
+                    case .Failure(let error):
                         observer.sendFailed(NetworkError(error: error))
                     }
             }
@@ -40,8 +40,8 @@ public final class Network: Networking {
             let serializer = Alamofire.Request.dataResponseSerializer()
             Alamofire.request(.GET, url)
                 .response(queue: self.queue, responseSerializer: serializer) {
-                    _, _, result in
-                    switch result {
+                    response in
+                    switch response.result {
                     case .Success(let data):
                         guard let image = UIImage(data: data) else {
                             observer.sendFailed(.IncorrectDataReturned)
@@ -49,7 +49,7 @@ public final class Network: Networking {
                         }
                         observer.sendNext(image)
                         observer.sendCompleted()
-                    case .Failure(_, let error):
+                    case .Failure(let error):
                         observer.sendFailed(NetworkError(error: error))
                     }
             }
