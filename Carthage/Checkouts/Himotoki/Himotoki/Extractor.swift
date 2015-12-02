@@ -19,11 +19,7 @@ public struct Extractor {
 
     private func rawValue(keyPath: KeyPath) throws -> AnyObject? {
         if !isDictionary {
-            throw DecodeError.TypeMismatch(
-                expected: "Dictionary",
-                actual: "\(rawValue)",
-                keyPath: keyPath
-            )
+            throw typeMismatch("Dictionary", actual: rawValue, keyPath: keyPath)
         }
 
         let components = ArraySlice(keyPath.components)
@@ -105,7 +101,7 @@ private func valueFor(keyPathComponents: ArraySlice<String>, _ object: AnyObject
     }
 
     // This type annotation is necessary to select intended `subscript` method.
-    guard let nested: AnyObject = object[first] else {
+    guard case let nested?? = object[first] else {
         return nil
     }
 
