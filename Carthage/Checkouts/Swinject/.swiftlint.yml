@@ -1,0 +1,14 @@
+disabled_rules:
+  - force_cast
+  - line_length
+  - variable_name_min_length
+  - trailing_whitespace
+  - nesting
+  - opening_brace
+excluded:
+  - Swinject/Container.Arguments.swift
+  - Swinject/SynchronizedResolver.Arguments.swift
+  - Swinject/Resolvable.swift
+  - SwinjectTests
+  - Sample-iOS.playground
+  - Carthage

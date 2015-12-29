@@ -14,7 +14,7 @@
 // Instead, modify Container.Arguments.erb and run `script/gencode` at the project root directory to generate the code.
 //
 
-<% arg_count = 12 %>
+<% arg_count = 9 %>
 
 import Foundation
 
@@ -31,14 +31,14 @@ extension Container {
     ///                  that have the same service and factory types.
     ///   - factory:     The closure to specify how the service type is resolved with the dependencies of the type.
     ///                  It is invoked when the `Container` needs to instantiate the instance.
-    ///                  It takes a `Resolvable` instance and <%= arg_description %> to inject dependencies to the instance,
+    ///                  It takes a `ResolverType` instance and <%= arg_description %> to inject dependencies to the instance,
     ///                  and returns the instance of the component type for the service.
     ///
-    /// - Returns: A registered `ServiceEntry` to configure some settings fluently.
+    /// - Returns: A registered `ServiceEntry` to configure more settings with method chaining.
     public func register<Service, <%= arg_types %>>(
         serviceType: Service.Type,
         name: String? = nil,
-        factory: (Resolvable, <%= arg_types %>) -> Service) -> ServiceEntry<Service>
+        factory: (ResolverType, <%= arg_types %>) -> Service) -> ServiceEntry<Service>
     {
         return registerImpl(serviceType, factory: factory, name: name)
     }
@@ -66,24 +66,24 @@ extension Container {
         serviceType: Service.Type,
         <%= arg_param_name %>: <%= arg_param_type %>) -> Service?
     {
-        return resolve(serviceType, <%= arg_param_name %>: <%= arg_param_name %>, name: nil)
+        return resolve(serviceType, name: nil, <%= arg_param_name %>: <%= arg_param_name %>)
     }
 
     /// Retrieves the instance with the specified service type, <%= arg_param_description %> to the factory closure and registration name.
     ///
     /// - Parameters:
     ///   - serviceType: The service type to resolve.
-    ///   - <%= arg_param_name %>:   <%= arg_param_description.capitalize %> to pass to the factory closure.
     ///   - name:        The registration name.
+    ///   - <%= arg_param_name %>:   <%= arg_param_description.capitalize %> to pass to the factory closure.
     ///
     /// - Returns: The resolved service type instance, or nil if no registration for the service type,
     ///            <%= arg_param_description %> and name is found in the `Container`.
     public func resolve<Service, <%= arg_types %>>(
         serviceType: Service.Type,
-        <%= arg_param_name %>: <%= arg_param_type %>,
-        name: String?) -> Service?
+        name: String?,
+        <%= arg_param_name %>: <%= arg_param_type %>) -> Service?
     {
-        typealias FactoryType = (Resolvable, <%= arg_types %>) -> Service
+        typealias FactoryType = (ResolverType, <%= arg_types %>) -> Service
         return resolveImpl(name) { (factory: FactoryType) in factory(self, <%= args_factory %>) }
     }
 
