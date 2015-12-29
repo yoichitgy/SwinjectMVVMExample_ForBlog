@@ -1,12 +1,12 @@
 # Welcome to Swinject
 
-Thank you for your interest to contribute to Swinject!
+Thank you for your interest to Swinject!
 
 ## Reporting Issues
 
 Nothing is off-limits to submit as an issue. Feel free to submit an issue for a bug, strange behavior, build failure, new feature request or anything you would like to report.
 
-It is helpful if you include the followings when you submit an issue:
+It is helpful if you include the followings when you submit an issue for a bug:
 
 - Your Xcode version
 - Your Swinject version (or git SHA)
@@ -16,7 +16,7 @@ If you would like to ask general questions about Swinject, it is preferable to a
 
 ## Pull Requests
 
-Pull requests are more appreciated to improve Swinject or to fix problems.
+Pull requests are more appreciated to improve Swinject or to fix problems. Any kind of pull requests are welcome.
 
 ### Getting Started
 
@@ -30,15 +30,18 @@ Move to the Swinject directory.
 
 `cd Swinject`
 
-Then run `carthage bootstrap` command to download and build the frameworks that Swinject uses.
+Then run `carthage` command to download the frameworks that Swinject uses.
 
-`carthage bootstrap --use-submodules --no-use-binaries`
+`carthage bootstrap --use-submodules --no-build`
 
 Now it is ready to open `Swinject.xcodeproj`. Modify the code, run unit tests, and submit your pull request.
 
 ### Code Style
 
 Please have a look at [GitHub Swift Style Guide](https://github.com/github/swift-style-guide), which the existing Swinject code tries to follow. If you have a case that is out of scope of the style guide, please try to match the style of the surrounding code.
+
+If you have [SwiftLint](https://github.com/realm/SwiftLint) installed, some parts of coding style are automatically checked when you build the Swinject project.
+The installation of SwiftLint to your environment is optional. [Hound CI](https://houndci.com) triggers SwiftLint to check your pull request.
 
 ### ERB Files
 

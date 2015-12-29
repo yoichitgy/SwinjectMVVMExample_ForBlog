@@ -14,7 +14,7 @@
 // Instead, modify Resolvable.erb and run `script/gencode` at the project root directory to generate the code.
 //
 
-<% arg_count = 12 %>
+<% arg_count = 9 %>
 
 public protocol Resolvable {
     /// Retrieves the instance with the specified service type.
@@ -54,15 +54,16 @@ public protocol Resolvable {
     ///
     /// - Parameters:
     ///   - serviceType: The service type to resolve.
-    ///   - <%= arg_param_name %>:   <%= arg_param_description.capitalize %> to pass to the factory closure.
     ///   - name:        The registration name.
+    ///   - <%= arg_param_name %>:   <%= arg_param_description.capitalize %> to pass to the factory closure.
     ///
     /// - Returns: The resolved service type instance, or nil if no registration for the service type,
     ///            <%= arg_param_description %> and name is found.
     func resolve<Service, <%= arg_types %>>(
         serviceType: Service.Type,
-        <%= arg_param_name %>: <%= arg_param_type %>,
-        name: String?) -> Service?
+        name: String?,
+        <%= arg_param_name %>: <%= arg_param_type %>) -> Service?
 
 <% end %>
+
 }

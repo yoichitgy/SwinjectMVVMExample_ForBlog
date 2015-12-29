@@ -5,29 +5,32 @@
 [![CocoaPods Version](https://img.shields.io/cocoapods/v/Swinject.svg?style=flat)](http://cocoapods.org/pods/Swinject)
 [![License](https://img.shields.io/cocoapods/l/Swinject.svg?style=flat)](http://cocoapods.org/pods/Swinject)
 [![Platform](https://img.shields.io/cocoapods/p/Swinject.svg?style=flat)](http://cocoapods.org/pods/Swinject)
-[![Language Swift](https://img.shields.io/badge/language-Swift-F16D39.svg?style=flat)](https://developer.apple.com/swift)
+[![Swift Version](https://img.shields.io/badge/Swift-2.1-F16D39.svg?style=flat)](https://developer.apple.com/swift)
 
-Swinject is a lightweight [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection) framework for Swift, inspired by [Ninject](http://ninject.org), [Autofac](http://autofac.org), [Typhoon](http://typhoonframework.org), [BlindsidedStoryboard](https://github.com/briancroom/BlindsidedStoryboard), and highly inspired by [Funq](http://funq.codeplex.com).
+Swinject is a lightweight [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection) framework for Swift.
 
 Dependency injection (DI) is a software design pattern that implements Inversion of Control (IoC) for resolving dependencies. In the pattern, Swinject helps your app split into loosely-coupled components, which can be developed, tested and maintained more easily. Swinject is powered by the Swift generic type system and first class functions to define dependencies of your app simply and fluently.
 
 ## Features
 
-- [x] Pure Swift Type Injection
+- [x] [Pure Swift Type Support](./Documentation/README.md#user-content-pure-swift-type-support)
+- [x] [Injection with Arguments](./Documentation/DIContainer.md#registration-with-arguments-to-di-container)
 - [x] [Initializer/Property/Method Injections](./Documentation/InjectionPatterns.md)
-- [x] [Initialization Callback](./Documentation/InjectionPatterns.md)
+- [x] [Initialization Callback](./Documentation/InjectionPatterns.md#user-content-initialization-callback)
 - [x] [Circular Dependency Injection](./Documentation/CircularDependencies.md)
-- [x] [Injection with Arguments](./Documentation/DIContainer.md)
-- [x] [Self-registration (Self-binding)](./Documentation/Misc.md)
-- [x] [Container Hierarchy](./Documentation/ContainerHierarchy.md)
 - [x] [Object Scopes as None (Transient), Graph, Container (Singleton) and Hierarchy](./Documentation/ObjectScopes.md)
-- [x] Injection of both Reference and [Value Types](./Documentation/Misc.md)
+- [x] Support of both Reference and [Value Types](./Documentation/Misc.md#value-types)
+- [x] [Self-registration (Self-binding)](./Documentation/Misc.md#self-registration-self-binding)
+- [x] [Container Hierarchy](./Documentation/ContainerHierarchy.md)
+- [x] [Property Injection from Resource files](./Documentation/Properties.md)
+- [x] [Thread Safety](./Documentation/ThreadSafety.md)
+- [x] [Modular Components](./Documentation/Assembler.md)
 - [x] [Storyboard](./Documentation/Storyboard.md)
 
 ## Requirements
 
-- iOS 8.0+ / Mac OS X 10.10+ / watchOS 2 / tvOS 9.0+
-- Xcode 7.0
+- iOS 8.0+ / Mac OS X 10.10+ / watchOS 2.0+ / tvOS 9.0+
+- Xcode 7.0+
 
 ## Installation
 
@@ -37,7 +40,7 @@ Swinject is available through [Carthage](https://github.com/Carthage/Carthage) o
 
 To install Swinject with Carthage, add the following line to your `Cartfile`.
 
-    github "Swinject/Swinject" ~> 0.4
+    github "Swinject/Swinject" ~> 1.0.0
 
 
 Then run `carthage update --no-use-binaries` command or just `carthage update`. For details of the installation and usage of Carthage, visit [its project page](https://github.com/Carthage/Carthage).
@@ -51,7 +54,7 @@ To install Swinject with CocoaPods, add the following lines to your `Podfile`.
     platform :ios, '8.0'
     use_frameworks!
 
-    pod 'Swinject', '~> 0.4'
+    pod 'Swinject', '~> 1.0.0'
 
 Then run `pod install` command. For details of the installation and usage of CocoaPods, visit [its official website](https://cocoapods.org).
 
@@ -164,8 +167,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(
         application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?)
-        -> Bool {
+        didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         // Instantiate a window.
         let window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -204,9 +206,27 @@ The following blog posts introduce Swinject and the concept of dependency inject
 
 ## Contribution Guide
 
-A guide to submit issues, to ask general questions, or to open pull requests is [here](CONTRIBUTING.md).
+A guide to [submit issues](https://github.com/Swinject/Swinject/issues), to ask general questions, or to [open pull requests](https://github.com/Swinject/Swinject/pulls) is [here](CONTRIBUTING.md).
+
+## Question?
 
 If you have a general question and hesitate to submit an issue at GitHub, you can feel free to ask the question at [Stack Overflow](http://stackoverflow.com). The author of Swinject monitors `swinject` tag there to answer as quickly as possible.
+
+## Credits
+
+The DI container features of Swinject are inspired by:
+
+- [Ninject](http://ninject.org) - [Enkari, Ltd](https://github.com/enkari) and [the Ninject project contributors](https://github.com/ninject/Ninject/graphs/contributors).
+- [Autofac](http://autofac.org) - [Autofac Project](https://github.com/autofac/Autofac).
+
+and highly inspired by:
+
+- [Funq](http://funq.codeplex.com) - [Daniel Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) and [the project team](http://funq.codeplex.com/team/view).
+
+SwinjectStoryboard is inspired by:
+
+- [Typhoon](http://typhoonframework.org) - [Jasper Blues](https://github.com/jasperblues), [Aleksey Garbarev](https://github.com/alexgarbarev) and [contributors](https://github.com/appsquickly/Typhoon/graphs/contributors).
+- [BlindsidedStoryboard](https://github.com/briancroom/BlindsidedStoryboard) - [Brian Croom](https://github.com/briancroom).
 
 ## License
 
